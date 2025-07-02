@@ -1,1 +1,74 @@
 //EJERCICIO3
+
+ //CABECERA
+    function ejercicio3: string;
+
+
+//EJERCICIO POO
+
+
+function invertir(n: Integer): Integer;
+var
+  d, nn: Integer;
+begin
+  nn := 0;
+  while n > 0 do
+  begin
+    d := n mod 10;
+    n := n div 10;
+    nn := nn * 10 + d;
+  end;
+  Result := nn;
+end;
+
+function esCapicua(n: Integer): Boolean;
+begin
+  Result := n = invertir(n);
+end;
+
+function NumeroNatural.ejercicio3: string;
+var
+  d, menores, mayores, n: Integer;
+  salida: string;
+begin
+  n := Valor;
+  menores := 0;
+  mayores := 0;
+
+  while n > 0 do
+  begin
+    d := n mod 10;
+    n := n div 10;
+
+    if d < 6 then
+      menores := menores * 10 + d
+    else
+      mayores := mayores * 10 + d;
+  end;
+
+  // Invertir porque los dígitos se formaron al revés
+  menores := invertir(menores);
+  mayores := invertir(mayores);
+
+  salida := '<6 Resultado = ' + IntToStr(invertir(menores));
+  if esCapicua(menores) then
+    salida := salida + '  Es capicua'
+  else
+    salida := salida + '  No es capicua';
+
+  salida := salida + sLineBreak + '>=6 Resultado = ' +
+    IntToStr(invertir(mayores));
+  if esCapicua(mayores) then
+    salida := salida + '  Es capicua'
+  else
+    salida := salida + '  No es capicua';
+
+  Result := salida;
+end;
+
+
+
+
+//LLAMADA
+  Edit2.Text := (Numero.ejercicio3);
+
