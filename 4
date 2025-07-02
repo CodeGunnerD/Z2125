@@ -1,1 +1,29 @@
 //EJERCICIO4
+function ejercicio4(cad: string): string;
+var
+  i, PosicionVisible: Integer;
+  Resultado: string;
+begin
+  Resultado := '';
+  PosicionVisible := 0;
+
+  for i := 1 to length(cad) do
+  begin
+    if cad[i] in ['A' .. 'Z', 'a' .. 'z'] then
+    begin
+      Inc(PosicionVisible);
+      if Odd(PosicionVisible) then
+        Resultado := Resultado + UpCase(cad[i])
+      else
+        Resultado := Resultado + LowerCase(cad[i]);
+    end
+    else
+      Resultado := Resultado + cad[i];
+  end;
+
+  Result := Resultado;
+end;
+
+//llamada
+
+  Edit3.Text := ejercicio4(cad);
