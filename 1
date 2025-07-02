@@ -1,6 +1,44 @@
 //EJERCICIO1
 
+function ejercicio1(n: Integer): string;
+var
+  i, x, mayor, menor: Integer;
+  primero: Boolean;
+begin
+  primero := True;
+  c := 0;
 
+  while c < n do
+  begin
+    x := StrToInt(InputBox('Ingrese número', 'Número ' + IntToStr(c + 1), ''));
+    if (x >= 100) and (x <= 200) then
+    begin
+      if primero then
+      begin
+        mayor := x;
+        menor := x;
+        primero := False;
+      end
+      else
+      begin
+        if x > mayor then
+          mayor := x;
+        if x < menor then
+          menor := x;
+      end;
+    end;
+    c := c + 1;
+  end;
+
+  if primero then
+    Result := 'No hay números en el rango [100-200]'
+  else
+    Result := 'Mayor: ' + IntToStr(mayor) + '  Menor: ' + IntToStr(menor);
+end;
+
+//llamada
+
+  Edit3.Text := ejercicio1(n);
 
 
 
