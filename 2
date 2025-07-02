@@ -1,1 +1,53 @@
 //EJERCICIO2
+function fct(n: Integer): Integer;
+var
+  i, f: Integer;
+begin
+  i := 0;
+  f := 1;
+  while i < n do
+  begin
+    i := i + 1;
+    f := f * i;
+  end;
+  Result := f;
+end;
+
+function ejercicio2(n: Integer): Real;
+var
+  x, n1, s, t: Real;
+  d, i: Integer;
+  sw: Boolean;
+begin
+  sw := True;
+  s := 0;
+  t := 0;
+  n1 := 7;
+  d := 1;
+  c := 0;
+  while c < n do
+  begin
+    c := c + 1;
+
+    if sw then
+    begin
+      t := n1 / fct(d);
+      s := s - t;
+      n1 := n1 * 3;
+      d := d + 2;
+      sw := False;
+    end
+    else
+    begin
+      t := n1 / fct(d);
+      s := s + t;
+      n1 := n1 * 3;
+      d := d + 2;
+      sw := True;
+    end;
+  end;
+
+  Result := s;
+end;
+  { LLAMADA 2  COPIAR ABAJO }
+  Edit3.Text := Floattostr(ejercicio2(n));
